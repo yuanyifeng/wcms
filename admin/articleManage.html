@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<!--<link rel="stylesheet" type="text/css" href="themes/IconExtension.css"/>-->
+		<script src="jquery.min.js"></script>
+		<script src="jquery.easyui.min.js"></script>
+		<script src="locale/easyui-lang-zh_CN.js"></script>
+	</head>
+
+	<body>
+		<table id="articleList" class="easyui-datagrid"></table>
+		<script>
+			$(function() {
+				//设置EasyUI数据表格的属性
+				$('#articleList').datagrid({
+						title: '文章列表',
+						url: 'data/articleList.json',
+						method: 'get',
+						pagination: true,
+						rownumbers: true,
+						idField: 'aId',
+						toolbar: "#actrcleTool",
+						height: "384",
+						columns: [
+							[{
+								field: 'ck',
+								checkbox: 'true'
+							}, {
+								field: 'aId',
+								title: 'ID',
+								sortable: true
+							}, {
+								field: 'aTitle',
+								title: '标题',
+								sortable: true
+							}, {
+								field: 'tabs',
+								title: '所属栏目',
+								sortable: true
+							}, {
+								field: 'entryDate',
+								title: '录入时间',
+								sortable: true
+							}, {
+								field: 'aPush',
+								title: '是否推荐'
+							}, {
+								field: 'opt',
+								title: '操作'
+							}]
+						]
+					})
+					//得到EasyUI数据表格的分页控件
+				var pager = $('#articleList').datagrid('getPager');
+				//设置分页属性
+				pager.pagination({
+					pageSize: 10, //每页显示的记录条数，默认为10 
+					pageList: [5, 10, 15], //可以设置每页记录条数的列表 
+				});
+			})
+		</script>
+		<!--自定义工具栏开始-->
+		<div id="actrcleTool" style="padding:8px 0 ;">
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="addArticle('新增文章', 'addArcticle.html')">新增文章</a>
+			<a id="aDelArticle" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true">删除文章</a>
+			<a id="aPushArticle" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true">推荐文章</a>
+			<div style="display: inline-block; padding-left: 30px; border-left: 1px solid #CCCACC;">
+				<label>搜索：</label>
+				<input type="text" class="easyui-searchbox" style="width:300px;" data-options="prompt:'请输入要搜索的文章标题',menu:'#tabList',searcher:doSearch">
+			</div>
+		</div>
+		<div id="tabList">
+			<div data-options="name:'all'">所有栏目</div>
+			<div data-options="name:'news'">新闻资讯</div>
+			<div data-options="name:'notices'">通知公告</div>
+		</div>
+		<script>
+			function doSearch(value, name) {
+				alert('You input: ' + value + '(' + name + ')');
+				//搜索框执行代码
+			}
+		</script>
+		<!--自定义工具栏结束-->
+		<script>
+			 /*新增文章iframe自适应高度*/
+			function adaptiveHeight(obj) {
+					var mainheight = $(obj).contents().find("body").height();
+					$(obj).height(mainheight);
+				}
+				/*新增文章*/
+
+			function addArticle(title, url) {
+					var jq = top.jQuery;
+					if (jq("#main").tabs('exists', title)) {
+						jq("#main").tabs('select', title);
+					} else {
+						var content = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;" onload="adaptiveHeight(this)"></iframe>';
+						jq("#main").tabs('add', {
+							title: title,
+							content: content,
+							closable: true,
+							iconCls: "icon-page_white_text"
+						});
+					}
+				}
+				/*删除文章提示信息*/
+			$(function() {
+				$("#aDelArticle").click(function() {
+					var ids = [];
+					var rows = $('#articleList').datagrid('getSelections');
+					for (var i = 0; i < rows.length; i++) {
+						ids.push(rows[i].aId);
+					}
+					$.messager.confirm("操作提示", "您确定要删除ID为【" + ids.join('\t') + "】的文章吗？",
+						function(cdata) {
+							if (cdata) { /*点击“确定”按钮要执行的代码*/ } else { /*点击“确定”按钮要执行的代码*/ }
+						});
+				})
+			})
+		</script>
+
+	</body>
+
+</html>

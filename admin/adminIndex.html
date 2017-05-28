@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>内容发布管理系统后台</title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="themes/IconExtension.css"/>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<style type="text/css">
+		div{
+			font: bold 16px "微软雅黑";
+		}
+#divTop{/*选择器为region='north'容器的id*/
+	position: relative;/*定义容器定位方式为相对定位*/
+	height:80px;/*定义容器高度*/
+	background: url(img/topbg.jpg);/*定义容器背景图像*/
+}
+#divTop #divTopMenu{/*选择器为快捷导航容器*/
+	position: absolute;/*定义容器定位方式为绝对定位*/
+	left: 350px;/*定义容器距离左边的位置*/
+	top:20px;/*定义容器距离上边的位置*/
+}
+#divTopMenu ul,.easyui-panel ul{/*清除无序列表默认样式*/
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#divTopMenu li,#divTopMenu li a{/*设置快捷导航项的超链接和文字样式*/
+	display: inline-block;/*定义li项为横向排列*/
+	padding: 8px;
+	font: bold 15px "microsoft yahei";
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.easyui-panel li{
+	height: 25px;
+}	
+	</style>
+<script type="text/javascript">
+/*iframe自适应高度*/
+function adaptiveHeight (obj){
+		var mainheight = $(obj).contents().find("body").height()+50;
+		$(obj).height(mainheight);
+}
+/*动态添加tabs*/
+function addTab(title, url){
+	if ($('#main').tabs('exists', title)){
+		$('#main').tabs('select', title);
+	} else {
+		var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;" onload="adaptiveHeight(this)"></iframe>';
+		$('#main').tabs('add',{
+			title:title,
+			content:content,
+			closable:true,
+			iconCls:"icon-page_white_text"
+		});
+	}
+}
+</script>
+	</head>
+<body class="easyui-layout">
+	<div data-options="region:'north'" id="divTop">
+<img src="img/logoAdmin.png" alt="..."  />
+<div id="divTopMenu">
+	<ul>
+		<li>欢迎您！admin【超级管理员】</li>
+		<li><a href="#">前台首页</a></li>
+		<li><a href="#">修改密码</a></li>
+		<li><a href="#">退出管理</a></li>
+	</ul>
+</div>
+	</div>
+	<div data-options="region:'west',split:true" title="导航菜单" style="width:240px;">
+<ul class="easyui-tree">
+  <li><span>常用功能</span>
+	  <ul>
+		  <li><span><a href="#" onclick="addTab('栏目管理','tabManage.html')">栏目管理</a></span></li>
+		  <li><span><a href="#" onclick="addTab('文章管理','articleManage.html')">文章管理</a></span></li> 
+		  <li><span><a href="#" onclick="addTab('文件管理','fileManage.html')">文件管理</a></span></li>
+		  <li><span><a href="#" onclick="addTab('用户管理','userManage.html')">用户管理</a></span></li>
+		  <li><span><a href="#" onclick="addTab('评论管理','tabManage.html')">评论管理</a></span></li> 
+		  <li><span><a href="#" onclick="addTab('模板管理','tabManage.html')">模板管理</a></span></li>
+	  </ul>
+  </li>
+  <li><span>系统工具</span>
+  	<ul>
+		  <li><span><a href="#">网站设置</a></span></li>
+		  <li><span><a href="#" onclick="addTab('数据统计','chart/wcms-chart.html')">数据统计</a></span></li>
+		  <li><span><a href="#">查看日志</a></span></li>
+		  <li><span><a href="#">数据备份</a></span></li>
+	  </ul>
+  </li>
+</ul>
+
+	</div>
+	<div data-options="region:'center',border:false">
+<div id="main" class="easyui-tabs" style="width:100%; height: 500px;" data-options="fit : true">
+	<div title="后台管理首页" iconCls="icon-page_white_text">
+		<iframe scrolling="auto" frameborder="0"  src="welcome.html" style="width:100%;" onload="adaptiveHeight (this)"></iframe>
+	</div>
+</div>
+	</div>	
+<script>
+  $(function () {
+    var options = {
+      title: "消息提示",
+      msg: "<a href='#'>站内短消息一</a><br><a href='#'>站内短消息二</a><br>",
+      showType: 'slide',
+      timeout: 5000
+    };
+    $.messager.show(options);
+  });
+</script>
+</body>
+</html>

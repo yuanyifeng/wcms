@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>内容发布管理系统后台</title>
+	<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="themes/IconExtension.css"/>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<style type="text/css">
+		.panel-title{
+			height: 30px;
+			font:bold 14px/30px "microsoft yahei";
+		}
+		.tabs{
+			/*border: none;*/
+		}
+		#divTop{
+			/*margin: 0;
+			padding: 0;*/
+			position: relative;
+			height:80px;
+			background: url(img/topbg.jpg);
+		}
+		#divTop #divTopMenu{
+			position: absolute;
+			left: 350px;
+			top:20px;
+		}
+		#divTopMenu ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		#divTopMenu li{
+			display: inline-block;
+			padding: 8px;
+			/*height: 30px;*/
+			font: bold 15px "microsoft yahei";
+			color: #FFFFFF;
+		}
+	</style>
+	<script type="text/javascript">
+/*iframe自适应高度*/
+function gd(obj){
+		
+		var mainheight = $(obj).contents().find("body").height()+50;
+		$(obj).height(mainheight);
+//		alert($(obj).height());
+}
+/*动态添加tabs*/
+function addTab(title, url){
+	if ($('#tt').tabs('exists', title)){
+		$('#tt').tabs('select', title);
+	} else {
+		var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:80px" onload="gd(this)"></iframe>';
+		$('#tt').tabs('add',{
+			title:title,
+			content:content,
+			closable:true,
+			iconCls:"icon-page_white_text"
+		});
+	}
+}
+	</script>
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'north'" id="divTop">
+		<img src="img/logoAdmin.png" alt="..."  />
+		<div id="divTopMenu">
+			<ul>
+				<li>欢迎您！admin【超级管理员】</li>
+				<li>前台首页</li>
+				<li>修改密码</li>
+				<li>退出管理</li>
+			</ul>
+		</div>
+	</div>
+	<div data-options="region:'west',split:true" title="导航菜单" style="width:270px;">
+		<div style="margin-bottom:10px">
+			<a href="#" class="easyui-linkbutton" onclick="addTab('表格','demo/datagrid/aligncolumns.html')">表格</a>
+			<a href="#" class="easyui-linkbutton" onclick="addTab('目录树','demo/tree/basic.html')">目录树</a>
+			<a href="#" class="easyui-linkbutton" onclick="addTab('表单','demo/form/basic.html')">表单</a>
+		</div>
+	</div>
+	<div data-options="region:'center',border:false">
+		<!--<iframe  id="main" name="main" frameborder="0" width="100%" height="300" src="content/content.html"></iframe>-->
+		<div id="tt" class="easyui-tabs" style="width:100%; height: 30px;" data-options="fit : true">
+			<div title="后台管理首页" iconCls="icon-page_white_text">
+				<p>后台首页内容</p>
+			</div>
+		</div>
+
+</div>
+	</div>
+</body>
+</html>

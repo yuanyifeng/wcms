@@ -1,0 +1,18 @@
+[{
+	"id":1,
+	"text":"一级菜单1",
+	"iconCls":"icon-add",
+	"state":"closed",
+	"children":
+	[{
+		"id":11,
+		"text":"二级菜单11"
+	},{
+		"id":12,
+		"text":"二级菜单12"
+	}]},{
+	"id":2,
+	"text":"一级菜单2",
+	"iconCls":"icon-add"
+}]
+

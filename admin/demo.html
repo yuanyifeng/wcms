@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="themes/IconExtension.css"/>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easyui.min.js"></script>
+		<script src="locale/easyui-lang-zh_CN.js"></script>
+	</head>
+	<body>
+
+<div class="easyui-layout" style="width:100%;height: 400px;">
+<div region="west" split="true" title="文件所属栏目" style="width:200px;">
+	<ul class="easyui-tree" data-options="url:'data/tab_treegrid_data.json',method:'get',animate:true,lines:true"></ul>
+</div>
+<div region="center" title="文件列表" style="padding:5px;">
+	<!--文件列表开始-->
+	<table id="articleList" class="easyui-datagrid"></table>
+	<script>
+	$(function(){
+		//设置EasyUI数据表格的属性
+		$('#articleList').datagrid({
+			url:'data/fileList.json',method:'get',
+			pagination:true,rownumbers:true, 
+			idField:'fId',
+			toolbar:"#fileTool",
+			height:"384",
+			fit:true,
+			columns:[[
+				{field:'ck',checkbox:'true'},
+				{field:'fId',title:'ID',sortable:true},
+				{field:'fName',title:'文件名',sortable:true},
+				{field:'fSize',title:'文件大小',sortable:true},
+				{field:'fType',title:'文件类型',sortable:true},
+				{field:'fUpDate',title:'上传日期',sortable:true},
+				{field:'aTitle',title:'所属文章标题',sortable:true},
+				{field:'tabs',title:'所属栏目',sortable:true},
+				{field:'opt',title:'操作'}
+			]]
+		})
+		//得到EasyUI数据表格的分页控件
+		var pager = $('#articleList').datagrid('getPager');
+		//设置分页属性
+		pager.pagination({ 
+	  		pageSize: 10,//每页显示的记录条数，默认为10 
+	  		pageList: [5,10,15],//可以设置每页记录条数的列表 
+		});
+	})
+	</script>
+<!--文件列表结束-->
+<!--自定义工具栏开始-->
+<div id="fileTool" style="padding:8px 0 ;">
+	<a id="aDelFile" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true">批量删除文件</a>
+	<div style="display: inline-block; padding-left: 20px; border-left: 1px solid #CCCACC;">
+		<label>搜索：</label>
+		<input type="text" class="easyui-searchbox" style="width:300px;" data-options="prompt:'请输入要搜索的文件名称',menu:'#tabList',searcher:doSearch">
+	</div>
+</div>
+<div id="tabList">
+	<div data-options="name:'all'">所有类型</div>
+	<div data-options="name:'news'">图片</div>
+	<div data-options="name:'notices'">doc文档</div>
+</div>
+<script>
+	function doSearch(value,name){
+		alert('You input: ' + value+'('+name+')');
+		//搜索框执行代码
+	}
+</script>
+<!--自定义工具栏结束-->
+</div>
+	</div>
+ 
+</body>
+
+	</body>
+</html>

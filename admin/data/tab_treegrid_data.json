@@ -1,0 +1,9 @@
+[{"id":1,	"text":"学院概况",	"url":"","status":"可用",
+	"children":[{"id":11,"text":"学院简介","url":"xygk/xyjj.html",	"status":"可用"	},
+	            {"id":12,"text":"学院领导","url":"xygk/xyld.html","status":"可用"	},
+	            {"id":13,"text":"...","url":"","status":""}]},
+ {"id":2,"text":"教育教学","url":"","status":"可用",
+	"children":[{"id":21,"text":"教学动态","url":"jyjx/jxdt.html","status":"可用"},
+							{"id":22,"text":"实践教学","url":"jyjx/sjjx.html","status":"可用"	},
+							{"id":23,"text":"...","url":"","status":""}]},
+ {"id":3,"text":"...","url":"","status":""}]

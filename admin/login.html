@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script>
+$(function(){
+	$('#codeE').text(createCode); //页面加载完全后，动态生成验证码标签内容
+	$('#aChangeCode').click(function(){//点击“换一张”链接，动态生成验证码标签内容
+		$('#codeE').text(createCode);
+	})
+	$('#frmLogin').submit(function(){
+		checkNull('#txtUser','用户名不能为空！');
+		checkNull('#txtPwd','密码不能为空！') ;
+		matchCode();
+	});
+	$('#txtUser').blur(function(){
+		checkNull('#txtUser','用户名不能为空！') ;
+	});
+	$('#txtPwd').blur(function(){
+		checkNull('#txtPwd','密码不能为空！') ;
+	});
+	$('#txtCode').blur(matchCode);
+})
+/**
+ * 判断输入框是否为空函数
+ * @param {Object} val 输入框id值
+ * @param {Object} tip 输入框为空的提示信息
+ */
+function checkNull(val,tip) {
+	var uName = $(val).val();
+	if (uName.length == 0) {//如果输入框为空，使用Bootstrap提示框组件显示相应提示信息
+		$(val).tooltip({title:tip,placement:'auto'});
+		$(val).tooltip('show');
+		return false;
+	} else {//如果输入框不为空，设置Bootstrap提示框组件提示信息为''空字符串
+		$(val).tooltip({title:'',placement:'auto'});
+		return false;
+	}
+}
+/**
+ * 判断验证码输入框输入值与动态生成验证码标签内容是否一致
+ */
+function matchCode(){
+	var buildCode=$('#codeE').text(); //动态生成验证码标签内容
+	var inputCode=$('#txtCode').val(); //验证码输入框输入值
+	if(buildCode!=inputCode){//如果验证码不一致，使用Bootstrap提示框组件显示相应提示信息
+		$('#txtCode').tooltip({title:'验证码输入不正确',placement:'auto'});
+		$('#txtCode').tooltip('show');
+		return false;
+	}
+	else{
+		$('#txtCode').tooltip({title:'',placement:'auto'});
+		return true;
+	}
+}
+function createCode() {
+	code = "";
+	var codeLength = 5;
+	var checkCode = document.getElementById("checkCode");
+	var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+	for (var i = 0; i < codeLength; i++) {
+		var charNum = Math.floor(Math.random() * 52);
+		code += codeChars[charNum];
+	}
+	return code;
+}
+		</script>
+		<style type="text/css">
+#frmLogin .input-group{
+	margin-bottom: 40px;
+}
+#frmLogin div{
+	font-family: "microsoft yahei";
+	font-weight: bold;
+}
+#frmLogin #codeE{
+	font-size: 20px;
+	border: 1px dashed #999999;
+	display: inline-block;
+	padding: 5px;
+}
+		</style>
+	</head>
+<body style="margin-top: 50px;">
+<div class="container">
+	<div class="row">
+	
+		
+		<div class="col-sm-6 col-sm-offset-6" >
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2 class="panel-title" style="font:normal 30px 'microsoft yahei';">
+					<span class="glyphicon glyphicon-hand-right"></span>
+					&nbsp;&nbsp;网站后台登录
+				</h2>
+			</div>
+			<form id="frmLogin">
+			<div class="panel-body" style="padding: 30px;">
+<div class="input-group">
+	<span class="input-group-addon">
+		<i class="glyphicon glyphicon-user">&nbsp;用户名</i>
+	</span>
+	<input id="txtUser" type="text" class="form-control" placeholder="" />
+</div>
+<div class="input-group">
+	<span class="input-group-addon">
+		<i class="glyphicon glyphicon-lock">&nbsp;密&nbsp;码</i>
+	</span>
+	<input id="txtPwd" type="password" class="form-control" placeholder="" />
+</div>
+<div class="input-group">
+	<span class="input-group-addon">
+		<i class="glyphicon glyphicon-eye-open">&nbsp;验证码</i>
+	</span>
+	<input id="txtCode" type="text" class="form-control" placeholder="" />
+</div>
+<div class="input-group">
+		验证码：<label id="codeE"></label>&nbsp;
+		<a id="aChangeCode" href="javascript:viod(0)">换一张</a>
+</div>
+<input type="submit" class="btn btn-primary pull-right" value="用户登录"/>
+			</div>
+			</form>
+	</div>
+	</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-sm-5">err</div>
+		<div class="col-sm-7">ere e</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<div class="col-sm-3 col-sm-offset-7"
+				style="padding: 0px; background: rgb(216, 225, 233);">
+				<ul class="nav nav-tabs">
+					<li style="width: 33%; text-align: center;" class="active"><a
+						href="#tab1" data-toggle="tab">企业登录</a></li>
+						<li style="width: 33%; text-align: center;"><a
+						href="#tab1" data-toggle="tab">学校登录</a></li>
+					<li style="width: 34%; text-align: center;"><a href="#tab2"
+						data-toggle="tab">注册</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="active tab-pane" id="tab1" style="min-height:300px;height:auto;max-height:350px;">
+						<!-- 登陆 -->
+						<div class="panel-body">
+
+							<form class="form-horizontal" role="form" id="loginForm">
+								<p style="margin-bottom: 25px;">
+									<select class="form-control" name="type" id="userType">
+										<option value="1">我是企业用户</option>
+										<option value="2">我是学校用户</option>
+										<option value="3">我是学生用户</option>
+									</select>
+								</p>
+								<p style="margin-bottom: 0px;">
+									<input type="text" id="loginName" name="loginName"
+										class="form-control" placeholder="请输入用户名">
+								</p>
+								<div id="loginNameError"
+									style="height: 25px; font-size: 14px; line-height: 25px; color: rgb(255, 86, 22);">
+
+								</div>
+								<p style="margin-bottom: 0px;">
+								
+									<input type="password" id="password" name="password"
+										class="form-control" placeholder="请输入登录密码">
+								</p>
+								<div id="passwordError"
+									style="height: 25px; font-size: 14px; line-height: 25px; color: rgb(255, 86, 22);">
+
+								</div>
+								<div class="row" style="margin-bottom: 0px;display:none;" id="codeDiv">
+									<div class="col-sm-5" style="padding-right: 0px;">
+										<input type="text" name="veryCodeLogin" id="veryCodeLogin"
+											class="form-control" placeholder="验证码">
+									</div>
+									<div class="col-sm-4">
+										<img id="imgObjLogin" height="34px" />
+
+									</div>
+									<div class="col-sm-3"
+										style="line-height: 34px; text-align: right;">
+										<span class="changeImgLogin">换一张</span>
+									</div>
+
+								</div>
+
+								<div id="veryCodeLoginError"
+									style="height: 25px; font-size: 14px; line-height: 25px; color: rgb(255, 86, 22);display:none;">
+
+								</div>
+								<div class="row" style="margin-top: 20px;">
+									<div class="col-sm-12">
+										<input type="submit" class="btn btn-primary" value="登&nbsp;录"
+											style="width: 100%; background: rgb(255, 85, 0); border: 0px; height: 35px;"
+											id="btLogin">
+									</div>
+								</div>
+
+								<div class="row" style="margin-top: 10px;">
+									<div class="col-sm-6">
+										<label class="checkbox-inline"> <input type="checkbox" class="rememberMe" name="rememberMe" checked/>记住账号
+										</label>
+
+									</div>
+									<div class="col-sm-6"
+										style="line-height: 34px; text-align: right;">
+										<a href="#">忘记密码</a>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- 登陆 -->
+
+
+					</div>
+					<div class="tab-pane" id="tab2" style="height:350px;">
+
+						<!-- 注册 -->
+						<div class="panel-body">
+
+							<form class="form-horizontal" role="form" id="regForm">
+								<p style="margin-bottom: 25px;">
+									<select class="form-control" name="regType" id="regType">
+										<option value="1" >我是企业用户</option>
+										<option value="2">我是学校用户</option>
+										<option value="3">我是学生用户</option>
+									</select>
+								</p>
+								<p>
+									<input type="text" id="regName" class="form-control"
+										placeholder="请填写用户名，用以登录网站">
+								</p>
+								<div id="regNameError"
+									style="height: 25px; font-size: 14px; line-height: 25px; color: rgb(255, 86, 22);">
+
+								</div>
+								<p>
+									<input type="password" id="regPassword" class="form-control"
+										placeholder="密码(6-16位字母、数字，无空格)">
+								</p>
+								<div id="regPasswordError"
+									style="height: 25px; font-size: 14px; line-height: 25px; color: rgb(255, 86, 22);">
+
+								</div>
+								<div class="row">
+									<div class="col-sm-5" style="padding-right: 0px;">
+										<input type="text" id="veryCodeReg" class="form-control"
+											placeholder="验证码">
+									</div>
+									<div class="col-sm-4">
+										<img id="imgObjReg" height="34px" />
+
+									</div>
+									<div class="col-sm-3"
+										style="line-height: 34px; text-align: right;">
+										<span class="changeImgReg">换一张</span>
+									</div>
+
+								</div>
+								<div id="veryCodeRegError"
+									style="height: 25px; font-size: 14px; line-height: 25px; color: rgb(255, 86, 22);">
+
+								</div>
+								<div class="row" style="margin-top: 20px;">
+									<div class="col-sm-12">
+									
+										<input type="submit" class="btn btn-primary" value="免费注册"
+											style="width: 100%; background: rgb(#f0ad4e); border: 0px; height: 35px;">
+									</div>
+								</div>
+
+
+							</form>
+							
+						</div>
+						<!-- 注册 -->
+
+
+
+					</div>
+				</div>
+
+
+
+
+			</div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+#topMenu,.panel{
+	font: bold 15px "微软雅黑";
+}
+/*用于链接文字超出部分为省略号*/
+.list-group a,
+.checkbox-inline,.panel a{
+	white-space: nowrap;/*设置文本不换行*/
+	word-break: keep-all;/*设置文本只能在半角空格或连字符处换行*/
+	overflow: hidden;/*设置超出部分隐藏*/
+	text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/
+	display: block;	/*此元素将显示为块级元素，此元素前后会带有换行符。*/
+	font: 15px "Microsoft YaHei";/*设置文本字体与大小*/
+}
+/*用于图片轮播的文字开始****************************/
+.carousel-caption {
+	background: #000000;/*设置容器背景颜色为黑色*/
+	color: #ffffff;/*设置文本颜色为白色*/
+	opacity: 0.7;/*设置透明度为70%*/
+	filter:alpha(opacity=70);/*设置透明度兼容ie8及以下版本*/
+	font: 12px "Microsoft YaHei";/*设置字体*/
+	width: 100%;/*设置容器宽度*/
+	left: 0px;/*设置容器左边缘位置*/
+	bottom: 0px;/*设置容器下边缘位置*/
+	padding: 0px 5px;/*设置容器内边距上下各为0，左右各为5像素*/
+	text-align: left;/*设置文本对齐方式为左对齐*/
+}
+/*用于图片轮播的文字结束****************************/
+/*用于前台用户注册开始*************************/
+/*设置用户注册项左边文字容器的样式*/
+.userRegisterText {
+	display: inline-block;/*设置容器为内联块对象*/
+	width: 20%;/*设置容器宽度*/
+	text-align: right;/*设置文本对齐方式为右对齐*/
+	padding-right: 5px;/*设置右外边距,让文本与输入框有5像素的距离*/
+	font: bold 15px "Microsoft YaHei";/*设置文本字体*/
+	vertical-align: top;/*设置容器垂直对齐方式为顶端对齐*/
+}
+/*设置用户注册项右边输入框容器的样式*/
+.userRegisterInput {
+	display: inline-block;/*设置容器为内联块对象*/
+	width: 70%;/*设置容器宽度*/
+}
+/*设置用户注册项右边输入提示文字容器的样式*/
+.userRegisterNotice {
+	font: 15px "Microsoft YaHei";/*设置文本字体*/
+	color: #444444;/*设置文本颜色*/
+	padding: 8px 0px;/*设置容器内边距，上下分别为8像素，左右为0*/
+}
+/*用于前台用户注册结束******************************/
+/*用于招生就业选项卡焦点******************************/
+#tab_ul li> a:focus {
+	background: #337AB7;
+	color: #FFFFFF
+}
+/*用于图文列表文字开始******************************/
+.media-body{
+	font:15px/25px "microsoft yahei";
+}
+/*用于图文列表文字结束******************************/
+/*用于图文列表图片3D旋转效果开始**********************/
+#xywh img{ 
+	-moz-transition: all 1s ease-in-out; 
+	-webkit-transition: all 1s ease-in-out; 
+	-o-transition: all 1s ease-in-out; 
+	-ms-transition: all 1s ease-in-out; 
+	transition: all 1s ease-in-out; 
+} 
+#xywh img:hover{ 
+	-moz-transform: rotateY(180deg); 
+	-webkit-transform: rotateY(180deg); 
+	-o-transform: rotateY(180deg); 
+	-ms-transform: rotateY(180deg); 
+	transform: rotateY(180deg); 
+}
+/*用于图文列表图片3D旋转效果开始*******************/ 
+/*快速通道的样式 开始*/
+#divChannelLink .p-body{
+	padding: 20px 20px 0px 20px;
+}
+#divChannelLink .col-md-4{
+	margin: 0;
+	padding: 0 5px;
+}
+#divChannelLink .row {
+	height: 95px;
+}
+#divChannelLink .col-md-4 img {
+	margin: 0 auto;/*设置居中*/
+	transform: translateY(0rem);/*设置元素回到原点*/
+	transition: all .25s ease;/*设置动画效果的时间*/
+}
+#divChannelLink .col-md-4:hover img {
+	transform: translateY(-1rem);/*设置元素向下移动1rem*/
+}
+/*用于栏目页滚动通知开始*/
+.scrollNotice {
+	position: relative;
+	height: 30px;
+	overflow: hidden;
+	border: 0px solid hotpink;
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 90px;
+}
+.scrollNotice ul,.scrollNotice ul li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.scrollNotice ul li a {
+	text-decoration: none;
+	font: bold 15px/30px "microsoft yahei";
+	color: #555555;
+}
+.scrollNotice #noticeTip{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 40px;
+	font: bold 15px "microsoft yahei";
+	padding: 10px;
+}
+/*用于栏目页滚动通知结束*/
+/*用于底部版权开始*/
+#divFooter{
+	background-color: #34383d;
+	color: white;
+	margin-top: 20px;
+}	
+#divFooter .row div{
+	color: cccacc;
+	font:15px/30px "microsoft yahei";
+}
+#divFooter .row a{
+	color: #cccacc;
+}
+#divFooter .row ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#divFooter .rowLinkLogo{
+	padding: 30px 0;
+	border-bottom: 1px solid #2b2e32;
+}
+.rowLinkLogo .leftLink{
+	text-align: right;
+	border-right: 1px solid #454a51;
+}
+.rowLinkLogo .centerLogo{
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+.rowLinkLogo .rightLink{
+	text-align: left;
+	border-left: 1px solid #454a51;
+}
+.divCopyright {
+	background-color: #2b2e32;
+	border-top: 1px solid #3e4248;
+	padding: 20px 0px;
+	text-align: center
+}
+.divCopyright center{
+	color: #cccacc;
+	font-weight: bold;
+}
+/*底部版权样式 结束*/
+/*栏目页中最热新闻的徽章开始*/
+#hotNews .badgetop3{
+	background: #C22222;
+}
+
+/*栏目页专业教育平台开始*/
+#ulPEPlatform .list-group-item{/*列表项容器*/
+	padding: 28px 10px; /*设置容器内边距*/
+}
+#ulPEPlatform .divPicText {/*说明文字容器*/
+	position: absolute;/*设置绝对定位*/
+	bottom: 0px;/*设置底部边缘位置*/
+	left: 0px;/*设置左边边缘位置*/
+	height: 0px;/*设置高度为0，即隐藏文字*/
+	overflow: hidden;
+	background: #000000;/*设置背景颜色*/
+	opacity: 0.7;/*设置透明度*/
+	color: #ffffff;/*设置字体颜色*/
+	font: 14px/25px "microsoft yahei";/*设置字体*/
+}
+/*栏目页专业教育平台结束*/ 
+/*内容页*/
+#artContent p {
+	text-indent: 2em;/*设置缩进*/
+	font:normal 15px/35px "microsoft yahei";
+}
+#artContent p{
+	text-align:justify;
+  text-justify:distribute-all-lines;/*ie6-8*/
+  text-align-last:justify;/* ie9*/
+  -moz-text-align-last:justify;/*ff*/
+  -webkit-text-align-last:justify;/*chrome 20+*/
+}
+/*新闻评论开始*/
+.comment {margin: 10px;	padding: 12px;}
+.comment .media {	border-bottom: 1px #428BCA dotted;}
+.comment img{	padding: 3px;}
+.comment .media_last{	margin-top: 15px;	border-bottom: none;}
+.comment .media_last .pull-left{	padding-right: 10px;}
+.comment .media .media-body .media {	
+	padding: 10px;	
+	border-top: 1px #428BCA dotted;
+	border-bottom: none;
+}
+/*新闻评论结束*/
+/*回到顶部开始*/
+.cd-top {
+	display: inline-block;
+	height: 60px;
+	width: 60px;
+	position: fixed;
+	bottom: 40px;
+	right: 35px;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	background: #428BCA url(../img/news/cd-top-arrow.svg) no-repeat center 50%;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.cd-top.cd-is-visible {
+	visibility: visible;
+	opacity: 1;
+}
+.cd-top.cd-fade-out {
+	opacity: .8;
+}
+.no-touch .cd-top:hover {
+	background-color: #e86256;
+	opacity: 1;
+}
+/*回到顶部结束*/
+/*分享开始*/
+.scrollsidebar{/* 侧栏分享面板最外层容器*/
+    position: absolute;/* 设置绝对定位*/
+    z-index: 999;/* 设置层叠顺序*/
+    top: 200px;/* 设置顶部*/
+}
+.side_content {/* 侧栏分享展开区域最外层容器*/
+    width: 154px;/* 设置宽度*/
+    height: auto;/* 设置高度*/
+    overflow: hidden;/* 隐藏溢出*/
+    float: left;/* 设置左浮动*/
+}
+.side_content .side_list {/* 侧栏分享展开区域列表容器*/
+    width: 154px;/* 设置宽度*/
+    overflow: hidden;/* 隐藏溢出*/
+}
+.side_title {/* 侧栏分享展开区域头部容器*/
+    height: 46px;/* 设置高度*/
+}
+.side_bottom {/* 侧栏分享展开区域底部容器*/
+    height: 8px;/* 设置高度*/
+}
+.side_center {/* 侧栏分享展开区域主体容器*/
+    padding: 5px 12px;/*设置内边距*/
+    font-size: 12px;/*设置字体大小*/
+}
+.close_btn {/* 侧栏分享展开区域头部关闭按钮*/
+    cursor: pointer;/* 设置指针为手形*/
+    float: right;/* 设置右浮动*/
+    display: block;/* 设置为块状元素*/
+    width: 21px;/* 设置宽度*/
+    height: 16px;/* 设置高度*/
+    margin: 16px 10px 0 0;/*设置外边距*/
+}
+.custom_service p a {/* 侧栏分享展开区域列表内容，如qq空间*/
+   display: inline-block;/* 设置为内联块元素*/
+   vertical-align: middle;/* 设置垂直对齐*/
+   text-align: center;/* 设置文本居中对齐*/
+   width: 60px;/* 设置宽度*/
+   height: 60px;/* 设置高度*/
+}
+.show_btn {/* 侧栏分享展开未展开样式*/
+    width: 0px;/* 设置宽度*/
+    height: 112px;/* 设置高度*/
+    overflow: hidden;/* 隐藏溢出*/
+    margin-top: 50px;/* 设置上外边距*/
+    float: left;/* 设置左浮动*/
+    cursor: pointer;/* 设置指针为手形*/
+}
+.side_title,.side_bottom,.close_btn,.show_btn {
+    background: url(../img/news/sidebar_bg.png) no-repeat;/*设置背景图片*/
+}
+.side_title,.side_blue .side_title {
+    background-position: -195px 0;/*设置背景图片位置*/
+}
+.side_center,.side_blue .side_center {
+    background: url(../img/news/blue_line.png) repeat-y center;/*设置背景图片*/
+}
+.side_bottom,.side_blue .side_bottom {
+    background-position: -195px -50px;/*设置背景图片位置*/
+}
+.close_btn,.side_blue .close_btn {
+    background-position: -44px 0;/*设置背景图片位置*/
+}
+.close_btn:hover,.side_blue .close_btn:hover {
+    background-position: -66px 0;/*设置背景图片位置*/
+}
+.show_btn,.side_blue .show_btn {
+    background-position: -119px 0;/*设置背景图片位置*/
+}
+.msgserver a,.side_blue .msgserver a {
+    color: #06C;/*设置颜色*/
+}
+/*分享结束*/

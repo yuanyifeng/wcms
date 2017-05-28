@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="themes/IconExtension.css"/>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easyui.min.js"></script>
+		<script src="locale/easyui-lang-zh_CN.js"></script>
+		<style type="text/css">
+.divRow{padding: 10px 20px;}
+.divRow label{
+	display: inline-block;
+	vertical-align: middle;
+	font: tahoma;
+	text-align: right;
+	width: 80px;
+}
+.divRow input{vertical-align:middle;}
+.divRow .easyui-linkbutton{width: 100px;}
+		</style>
+	</head>
+	<body>
+<form id="ff" method="post">
+<div class="easyui-panel" title="新增文章">
+	<div class="divRow">
+		<label>所属栏目：</label>
+		<input class="easyui-combotree" data-options="url:'data/tab_treegrid_data.json',method:'get',required:true">
+	</div>
+	<div class="divRow">
+		<label>文章标题：</label>
+		<input type="text" class="easyui-textbox" data-options="required:true" style="width: 430px;" />
+	</div>
+	<div class="divRow">
+		<label>录入者：</label><input type="text" class="easyui-textbox" />
+		<label>录入时间：</label><input class="easyui-datebox" />
+	</div>
+	<div class="divRow">
+		<label>是否推荐：</label>
+		<input type="radio" /><span>是</span><input type="radio" /><span>否</span>
+		<label>滚动公告：</label>
+		<input type="radio" /><span>是</span><input type="radio" /><span>否</span>
+		<label>图片轮播：</label>
+		<input type="radio" /><span>是</span><input type="radio" /><span>否</span>
+	</div>
+	<div class="divRow">
+<!-- 加载编辑器的容器 -->
+<script id="container" name="content" type="text/plain">
+    这里写你的初始化内容
+</script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+		window.UEDITOR_HOME_URL = "/admin/ueditor/";　　//从项目的根目录开始
+    var ue = UE.getEditor('container');
+</script>
+	</div>
+	<div class="divRow">
+		<a href="#" class="easyui-linkbutton">添加</a>
+		<a href="#" class="easyui-linkbutton">返回</a>
+	</div>
+</div>
+</form>
+	</body>
+</html>

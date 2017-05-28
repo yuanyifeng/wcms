@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>吉首大学软件服务外包学院-新闻栏</title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="js/jquery.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/wcmsIndex.css" />
+		<style type="text/css">
+			/*div{
+				height: 60px;
+			}*/
+			.navbar div{
+				font:bold 15px "microsoft yahei";
+			}
+		</style>
+	</head>
+
+	<body>
+<!--头部logo开始-->
+<div class="container">
+	<!--定义一行-->
+	<div class="row">
+		<!--定义左边响应列，超小屏占5格，小屏及以上宽度占6格-->
+		<div class="col-sm-5 col-xs-6">
+			<!--定义logo图片-->
+			<img src="img/logo.png" alt="吉首大学软件服务外包学院" class="img-responsive">
+		</div>
+		<!--定义右边响应列，超小屏占6格，小屏及以上宽度占7格-->
+		<div class="col-sm-7 col-xs-6" style="padding-top: 2.5%;">
+			<!--定义表单-->
+			<form id="frmSeach" action="#">
+				<!--input-group定义Bootstrap输入框组件容器-->
+				<div class="input-group">
+					<!--定义一个单行文本输入框-->
+					<input type="text" class="form-control" placeholder="请输入关键字进行站内检索">
+					<!--定义搜索按钮-->
+					<span class="input-group-btn">
+	  			<input type="submit" class="btn btn-default" value="搜索" />
+	  		</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--头部logo结束-->
+<!--定义Bootstrap导航条组件容器，采用默认风格样式-->
+<div class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header" style="margin-top:5px;">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="navbar-collapse collapse navbar-response-collapse" id="navbar-main">
+				<ul class="nav navbar-nav" style="font:bold 15px 微软雅黑;">
+					<li><a href="#" class="nav navbar-header">首页</a>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">学院概况<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">学院简介</a>
+							</li>
+							<li><a href="#">学院领导</a>
+							</li>
+							<li><a href="#">组织机构</a>
+							</li>
+							<li><a href="#">专业设置</a>
+							</li>
+							<li><a href="#">师资力量</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">教育教学<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">教学动态</a>
+							</li>
+							<li><a href="#">国家平台</a>
+							</li>
+							<li><a href="#">实践教学</a>
+							</li>
+							<li><a href="#">教研教改</a>
+							</li>
+							<li><a href="#">大学生科技创新</a>
+							</li>
+							<li><a href="#">校企合作</a>
+							</li>
+							<li><a href="#">管理制度</a>
+							</li>
+							<li><a href="#">常用制度</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">科学研究<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">通知公告</a>
+							</li>
+							<li><a href="#">学术动态</a>
+							</li>
+							<li><a href="#">学科建设</a>
+							</li>
+							<li><a href="#">科研课题</a>
+							</li>
+							<li><a href="#">科研成果</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">学生工作<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">学生管理</a>
+							</li>
+							<li><a href="#">学生风采</a>
+							</li>
+							<li><a href="#">校园文化</a>
+							</li>
+							<li><a href="#">素质教育</a>
+							</li>
+							<li><a href="#">校友之家</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">招生就业<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">招生信息</a>
+							</li>
+							<li><a href="#">就业信息</a>
+							</li>
+						</ul>
+					</li>
+					<li><a href="#">专业介绍</a>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">党群工作<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">群众路线</a>
+							</li>
+							<li><a href="#">党团工作</a>
+							</li>
+							<li><a href="#">工会工作</a>
+							</li>
+						</ul>
+					</li>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">院务公开<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">通知公告</a>
+							</li>
+							<li><a href="#">电子院报</a>
+							</li>
+							<li><a href="#">人才引进</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">关工委<span class="caret"></span></a>
+						<ul class="dropdown-menu ">
+							<li><a href="#">机构与职责</a>
+							</li>
+							<li><a href="#">工作计划总结</a>
+							</li>
+							<li><a href="#">主题教育活动</a>
+							</li>
+							<li><a href="#">其它活动</a>
+							</li>
+						</ul>
+					</li>
+					<li><a href="#">新闻资讯</a>
+					</li>
+			</div>
+		</div>
+	</div>
+</div>
+<!--导航条结束-->
+<div class="container">
+	<!--定义一行,在此行中定义了3列，列中存放内容-->
+	<div class="row">
+		<!--通知公告开始-->
+		<div class="col-xs-12 col-sm-4>
+			<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<a href="#" style="float:right;">更多...</a><span class="glyphicon glyphicon-volume-up"></span>&nbsp;&nbsp;通知公告
+						</h3>
+					</div>
+						<ul class="list-group">
+							<a class="list-group-item" class="list-group-item" href='#' target="_blank">关于2014届软件工程专业毕业设计答辩安排的通知</a>
+							<a class="list-group-item" href='#' target="_blank">软件服务外包学院2013级软件工程专业方向分流方案</a>
+							<a class="list-group-item" href='#' target="_blank">关于2014届软件工程专业毕业设计答辩安排的通知</a>
+							<a class="list-group-item" href='#' target="_blank">关于举办吉首大学第八届程序设计大赛张家界校区预选拔赛的通知</a>
+							<a class="list-group-item" href='#' target="_blank">2014年青年教师教学比武结果的通知</a>
+							</li>
+						</ul>
+					</div>
+		</div>
+		<!--通知公告结束-->
+		<!--定义另一列，放置图片新闻轮播内容-->
+		<div class="col-xs-12 col-sm-5">图片新闻轮播</div>
+		<div class="col-xs-12 col-sm-3">前台用户登录</div>
+	</div>
+	<!--定义一行,在此行中定义了3列，列中存放内容-->
+	<div class="row">
+		<div class="col-xs-12 col-sm-4">新闻资讯列表</div>
+		<div class="col-xs-12 col-sm-5">视频播放</div>
+		<div class="col-xs-12 col-sm-3">招生就业列表</div>
+	</div>
+	<!--定义一行,在此行中定义了2列，列中存放内容-->
+	<div class="row">
+		<div class="col-xs-12 col-sm-9">图文新闻列表</div>
+		<div class="col-xs-12 col-sm-3">快捷通道</div>
+	</div>
+</div>
+<div class="container">底部版权信息</div>
+
+	</body>
+
+</html>
